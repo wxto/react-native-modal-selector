@@ -28,6 +28,7 @@ const propTypes = {
     style: rnVersion >= 0.44 ? ViewPropTypes.style : View.propTypes.style,
     selectStyle: rnVersion >= 0.44 ? ViewPropTypes.style : View.propTypes.style,
     optionStyle: rnVersion >= 0.44 ? ViewPropTypes.style : View.propTypes.style,
+    optionsContainerStyle: rnVersion >= 0.44 ? ViewPropTypes.style : View.propTypes.style,
     optionTextStyle: Text.propTypes.style,
     sectionStyle: rnVersion >= 0.44 ? ViewPropTypes.style : View.propTypes.style,
     sectionTextStyle: Text.propTypes.style,
@@ -45,6 +46,7 @@ const defaultProps = {
     style: {},
     selectStyle: {},
     optionStyle: {},
+    optionsContainerStyle: {},
     optionTextStyle: {},
     sectionStyle: {},
     sectionTextStyle: {},
@@ -133,7 +135,7 @@ export default class ModalSelector extends BaseComponent {
 
         return (
             <View style={[styles.overlayStyle, this.props.overlayStyle]} key={'modalSelector'+(componentIndex++)}>
-                <View style={styles.optionContainer}>
+                <View style={[styles.optionContainer, this.props.optionsContainerStyle]}>
                     <ScrollView keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps}>
                         <View style={{paddingHorizontal:10}}>
                             {options}
